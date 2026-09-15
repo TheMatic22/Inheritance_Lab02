@@ -1,5 +1,6 @@
 import java.util.Calendar;
-public class Person {
+
+public abstract class Person {
 
     private String firstName;
     private String lastName;
@@ -20,6 +21,7 @@ public class Person {
     }
 
     public Person(Person other) {
+
         this(other.firstName, other.lastName, other.ID, other.title, other.YOB);
     }
 
@@ -135,4 +137,8 @@ public class Person {
         if (!ID.equals(person.ID)) return false;
         return title.equals(person.title);
     }
+
+    abstract double calculateWeeklyPay(double hoursWorked);
+
+    public abstract String toCSV(String hourlyPayRate);
 }
